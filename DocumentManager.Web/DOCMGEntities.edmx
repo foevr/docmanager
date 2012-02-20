@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DOCMGModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DOCMGModelStoreContainer">
+          <EntitySet Name="RL_USER_FIELD" EntityType="DOCMGModel.Store.RL_USER_FIELD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RL_USER_MODULE" EntityType="DOCMGModel.Store.RL_USER_MODULE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TBCONTRACT" EntityType="DOCMGModel.Store.TBCONTRACT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TBFIELD" EntityType="DOCMGModel.Store.TBFIELD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TBMODULE" EntityType="DOCMGModel.Store.TBMODULE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TBSYSCODE" EntityType="DOCMGModel.Store.TBSYSCODE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TBSYSCODETYPE" EntityType="DOCMGModel.Store.TBSYSCODETYPE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TBUSER" EntityType="DOCMGModel.Store.TBUSER" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="TBFIELD_RL_USER_FIELD_FK1" Association="DOCMGModel.Store.TBFIELD_RL_USER_FIELD_FK1">
+            <End Role="TBFIELD" EntitySet="TBFIELD" />
+            <End Role="RL_USER_FIELD" EntitySet="RL_USER_FIELD" />
+          </AssociationSet>
+          <AssociationSet Name="TBMODULE_RL_USER_MODULE_FK1" Association="DOCMGModel.Store.TBMODULE_RL_USER_MODULE_FK1">
+            <End Role="TBMODULE" EntitySet="TBMODULE" />
+            <End Role="RL_USER_MODULE" EntitySet="RL_USER_MODULE" />
+          </AssociationSet>
+          <AssociationSet Name="TBSYSCODETYPE_TBSYSCODE_FK1" Association="DOCMGModel.Store.TBSYSCODETYPE_TBSYSCODE_FK1">
+            <End Role="TBSYSCODETYPE" EntitySet="TBSYSCODETYPE" />
+            <End Role="TBSYSCODE" EntitySet="TBSYSCODE" />
+          </AssociationSet>
+          <AssociationSet Name="TBUSER_RL_USER_FIELD_FK1" Association="DOCMGModel.Store.TBUSER_RL_USER_FIELD_FK1">
+            <End Role="TBUSER" EntitySet="TBUSER" />
+            <End Role="RL_USER_FIELD" EntitySet="RL_USER_FIELD" />
+          </AssociationSet>
+          <AssociationSet Name="TBUSER_RL_USER_MODULE_FK1" Association="DOCMGModel.Store.TBUSER_RL_USER_MODULE_FK1">
+            <End Role="TBUSER" EntitySet="TBUSER" />
+            <End Role="RL_USER_MODULE" EntitySet="RL_USER_MODULE" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="RL_USER_FIELD">
+          <Key>
+            <PropertyRef Name="USERID" />
+            <PropertyRef Name="FIELDID" />
+          </Key>
+          <Property Name="USERID" Type="int" Nullable="false" />
+          <Property Name="FIELDID" Type="int" Nullable="false" />
+          <Property Name="AUTHTYPE" Type="int" />
+        </EntityType>
+        <EntityType Name="RL_USER_MODULE">
+          <Key>
+            <PropertyRef Name="USERID" />
+            <PropertyRef Name="MODULEID" />
+          </Key>
+          <Property Name="USERID" Type="int" Nullable="false" />
+          <Property Name="MODULEID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBCONTRACT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="TBFIELD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TABLENAME" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="FIELDNAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TBMODULE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="MODULEPATH" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ORDERINDEX" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBSYSCODE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PARENTID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBSYSCODETYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TBUSER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="nvarchar" MaxLength="20" />
+          <Property Name="USERID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="USERPWD" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="TBFIELD_RL_USER_FIELD_FK1">
+          <End Role="TBFIELD" Type="DOCMGModel.Store.TBFIELD" Multiplicity="1" />
+          <End Role="RL_USER_FIELD" Type="DOCMGModel.Store.RL_USER_FIELD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBFIELD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RL_USER_FIELD">
+              <PropertyRef Name="FIELDID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TBMODULE_RL_USER_MODULE_FK1">
+          <End Role="TBMODULE" Type="DOCMGModel.Store.TBMODULE" Multiplicity="1" />
+          <End Role="RL_USER_MODULE" Type="DOCMGModel.Store.RL_USER_MODULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBMODULE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RL_USER_MODULE">
+              <PropertyRef Name="MODULEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TBSYSCODETYPE_TBSYSCODE_FK1">
+          <End Role="TBSYSCODETYPE" Type="DOCMGModel.Store.TBSYSCODETYPE" Multiplicity="1" />
+          <End Role="TBSYSCODE" Type="DOCMGModel.Store.TBSYSCODE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBSYSCODETYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBSYSCODE">
+              <PropertyRef Name="PARENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TBUSER_RL_USER_FIELD_FK1">
+          <End Role="TBUSER" Type="DOCMGModel.Store.TBUSER" Multiplicity="1" />
+          <End Role="RL_USER_FIELD" Type="DOCMGModel.Store.RL_USER_FIELD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RL_USER_FIELD">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TBUSER_RL_USER_MODULE_FK1">
+          <End Role="TBUSER" Type="DOCMGModel.Store.TBUSER" Multiplicity="1" />
+          <End Role="RL_USER_MODULE" Type="DOCMGModel.Store.RL_USER_MODULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RL_USER_MODULE">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DOCMGModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DOCMGEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RL_USER_FIELD" EntityType="DOCMGModel.RL_USER_FIELD" />
+          <EntitySet Name="TBCONTRACT" EntityType="DOCMGModel.TBCONTRACT" />
+          <EntitySet Name="TBFIELD" EntityType="DOCMGModel.TBFIELD" />
+          <EntitySet Name="TBMODULE" EntityType="DOCMGModel.TBMODULE" />
+          <EntitySet Name="TBSYSCODE" EntityType="DOCMGModel.TBSYSCODE" />
+          <EntitySet Name="TBSYSCODETYPE" EntityType="DOCMGModel.TBSYSCODETYPE" />
+          <EntitySet Name="TBUSER" EntityType="DOCMGModel.TBUSER" />
+          <AssociationSet Name="TBFIELD_RL_USER_FIELD_FK1" Association="DOCMGModel.TBFIELD_RL_USER_FIELD_FK1">
+            <End Role="TBFIELD" EntitySet="TBFIELD" />
+            <End Role="RL_USER_FIELD" EntitySet="RL_USER_FIELD" />
+          </AssociationSet>
+          <AssociationSet Name="TBUSER_RL_USER_FIELD_FK1" Association="DOCMGModel.TBUSER_RL_USER_FIELD_FK1">
+            <End Role="TBUSER" EntitySet="TBUSER" />
+            <End Role="RL_USER_FIELD" EntitySet="RL_USER_FIELD" />
+          </AssociationSet>
+          <AssociationSet Name="TBSYSCODETYPE_TBSYSCODE_FK1" Association="DOCMGModel.TBSYSCODETYPE_TBSYSCODE_FK1">
+            <End Role="TBSYSCODETYPE" EntitySet="TBSYSCODETYPE" />
+            <End Role="TBSYSCODE" EntitySet="TBSYSCODE" />
+          </AssociationSet>
+          <AssociationSet Name="RL_USER_MODULE" Association="DOCMGModel.RL_USER_MODULE">
+            <End Role="TBMODULE" EntitySet="TBMODULE" />
+            <End Role="TBUSER" EntitySet="TBUSER" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="RL_USER_FIELD">
+          <Key>
+            <PropertyRef Name="USERID" />
+            <PropertyRef Name="FIELDID" />
+          </Key>
+          <Property Name="USERID" Type="Int32" Nullable="false" />
+          <Property Name="FIELDID" Type="Int32" Nullable="false" />
+          <Property Name="AUTHTYPE" Type="Int32" />
+          <NavigationProperty Name="TBFIELD" Relationship="DOCMGModel.TBFIELD_RL_USER_FIELD_FK1" FromRole="RL_USER_FIELD" ToRole="TBFIELD" />
+          <NavigationProperty Name="TBUSER" Relationship="DOCMGModel.TBUSER_RL_USER_FIELD_FK1" FromRole="RL_USER_FIELD" ToRole="TBUSER" />
+        </EntityType>
+        <EntityType Name="TBCONTRACT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="TBFIELD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TABLENAME" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FIELDNAME" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="RL_USER_FIELD" Relationship="DOCMGModel.TBFIELD_RL_USER_FIELD_FK1" FromRole="TBFIELD" ToRole="RL_USER_FIELD" />
+        </EntityType>
+        <EntityType Name="TBMODULE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="MODULEPATH" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ORDERINDEX" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TBUSER" Relationship="DOCMGModel.RL_USER_MODULE" FromRole="TBMODULE" ToRole="TBUSER" />
+        </EntityType>
+        <EntityType Name="TBSYSCODE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PARENTID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TBSYSCODETYPE" Relationship="DOCMGModel.TBSYSCODETYPE_TBSYSCODE_FK1" FromRole="TBSYSCODE" ToRole="TBSYSCODETYPE" />
+        </EntityType>
+        <EntityType Name="TBSYSCODETYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="TBSYSCODE" Relationship="DOCMGModel.TBSYSCODETYPE_TBSYSCODE_FK1" FromRole="TBSYSCODETYPE" ToRole="TBSYSCODE" />
+        </EntityType>
+        <EntityType Name="TBUSER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="USERPWD" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="RL_USER_FIELD" Relationship="DOCMGModel.TBUSER_RL_USER_FIELD_FK1" FromRole="TBUSER" ToRole="RL_USER_FIELD" />
+          <NavigationProperty Name="TBMODULE" Relationship="DOCMGModel.RL_USER_MODULE" FromRole="TBUSER" ToRole="TBMODULE" />
+        </EntityType>
+        <Association Name="TBFIELD_RL_USER_FIELD_FK1">
+          <End Role="TBFIELD" Type="DOCMGModel.TBFIELD" Multiplicity="1" />
+          <End Role="RL_USER_FIELD" Type="DOCMGModel.RL_USER_FIELD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBFIELD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RL_USER_FIELD">
+              <PropertyRef Name="FIELDID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TBUSER_RL_USER_FIELD_FK1">
+          <End Role="TBUSER" Type="DOCMGModel.TBUSER" Multiplicity="1" />
+          <End Role="RL_USER_FIELD" Type="DOCMGModel.RL_USER_FIELD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RL_USER_FIELD">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TBSYSCODETYPE_TBSYSCODE_FK1">
+          <End Role="TBSYSCODETYPE" Type="DOCMGModel.TBSYSCODETYPE" Multiplicity="1" />
+          <End Role="TBSYSCODE" Type="DOCMGModel.TBSYSCODE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBSYSCODETYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBSYSCODE">
+              <PropertyRef Name="PARENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RL_USER_MODULE">
+          <End Role="TBMODULE" Type="DOCMGModel.TBMODULE" Multiplicity="*" />
+          <End Role="TBUSER" Type="DOCMGModel.TBUSER" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DOCMGModelStoreContainer" CdmEntityContainer="DOCMGEntities">
+          <EntitySetMapping Name="RL_USER_FIELD"><EntityTypeMapping TypeName="DOCMGModel.RL_USER_FIELD"><MappingFragment StoreEntitySet="RL_USER_FIELD">
+            <ScalarProperty Name="USERID" ColumnName="USERID" />
+            <ScalarProperty Name="FIELDID" ColumnName="FIELDID" />
+            <ScalarProperty Name="AUTHTYPE" ColumnName="AUTHTYPE" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TBCONTRACT"><EntityTypeMapping TypeName="DOCMGModel.TBCONTRACT"><MappingFragment StoreEntitySet="TBCONTRACT">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TBFIELD"><EntityTypeMapping TypeName="DOCMGModel.TBFIELD"><MappingFragment StoreEntitySet="TBFIELD">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="TABLENAME" ColumnName="TABLENAME" />
+            <ScalarProperty Name="FIELDNAME" ColumnName="FIELDNAME" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TBMODULE"><EntityTypeMapping TypeName="DOCMGModel.TBMODULE"><MappingFragment StoreEntitySet="TBMODULE">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="NAME" ColumnName="NAME" />
+            <ScalarProperty Name="MODULEPATH" ColumnName="MODULEPATH" />
+            <ScalarProperty Name="ORDERINDEX" ColumnName="ORDERINDEX" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TBSYSCODE"><EntityTypeMapping TypeName="DOCMGModel.TBSYSCODE"><MappingFragment StoreEntitySet="TBSYSCODE">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="NAME" ColumnName="NAME" />
+            <ScalarProperty Name="PARENTID" ColumnName="PARENTID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TBSYSCODETYPE"><EntityTypeMapping TypeName="DOCMGModel.TBSYSCODETYPE"><MappingFragment StoreEntitySet="TBSYSCODETYPE">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="NAME" ColumnName="NAME" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TBUSER"><EntityTypeMapping TypeName="DOCMGModel.TBUSER"><MappingFragment StoreEntitySet="TBUSER">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+            <ScalarProperty Name="USERID" ColumnName="USERID" />
+            <ScalarProperty Name="USERPWD" ColumnName="USERPWD" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="RL_USER_MODULE" TypeName="DOCMGModel.RL_USER_MODULE" StoreEntitySet="RL_USER_MODULE">
+            <EndProperty Name="TBMODULE">
+              <ScalarProperty Name="ID" ColumnName="MODULEID" />
+            </EndProperty>
+            <EndProperty Name="TBUSER">
+              <ScalarProperty Name="ID" ColumnName="USERID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DOCMGEntities">
+        <EntityTypeShape EntityType="DOCMGModel.RL_USER_FIELD" Width="1.5" PointX="5.25" PointY="1" Height="1.9700325520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOCMGModel.TBCONTRACT" Width="1.5" PointX="5.75" PointY="6.75" Height="1.2059537760416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOCMGModel.TBFIELD" Width="1.5" PointX="3" PointY="5.125" Height="1.7790128580729157" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOCMGModel.TBMODULE" Width="1.5" PointX="0.75" PointY="1" Height="1.9700325520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOCMGModel.TBSYSCODE" Width="1.5" PointX="8" PointY="3.875" Height="1.7790128580729174" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOCMGModel.TBSYSCODETYPE" Width="1.5" PointX="5.75" PointY="4" Height="1.5879931640624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOCMGModel.TBUSER" Width="1.5" PointX="3" PointY="0.875" Height="2.1610522460937496" IsExpanded="true" />
+        <AssociationConnector Association="DOCMGModel.TBFIELD_RL_USER_FIELD_FK1" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="6.16899658203125" />
+          <ConnectorPoint PointX="5.46875" PointY="6.16899658203125" />
+          <ConnectorPoint PointX="5.46875" PointY="2.9700325520833335" />
+        </AssociationConnector>
+        <AssociationConnector Association="DOCMGModel.TBUSER_RL_USER_FIELD_FK1" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="1.9850162760416668" />
+          <ConnectorPoint PointX="5.25" PointY="1.9850162760416668" />
+        </AssociationConnector>
+        <AssociationConnector Association="DOCMGModel.TBSYSCODETYPE_TBSYSCODE_FK1" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.25" PointY="4.79399658203125" />
+          <ConnectorPoint PointX="8" PointY="4.79399658203125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DOCMGModel.RL_USER_MODULE" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.9850162760416668" />
+          <ConnectorPoint PointX="3" PointY="1.9850162760416668" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

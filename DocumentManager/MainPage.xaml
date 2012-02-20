@@ -1,0 +1,65 @@
+﻿<UserControl xmlns:my1="clr-namespace:DocumentManager"  x:Class="DocumentManager.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="415" d:DesignWidth="668" xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduler"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             BorderBrush="{Binding Source={StaticResource COLOR_FONT_ACTIVE}, Path=Color}" BorderThickness="10" xmlns:my="clr-namespace:DocumentManager.Navigate" 
+             Loaded="UserControl_Loaded" FontFamily="Microsoft YaHei,SimSun,Arial" FontSize="13">
+    
+    <Grid x:Name="LayoutRoot" dx:ThemeManager.ApplyApplicationTheme="True" dx:ThemeManager.ThemeName="MetropolisDark" Background="{Binding Source={StaticResource COLOR_BACKGROUND}, Mode=OneTime}">
+        <Grid>
+            <dxsch:SchedulerControl Margin="0,100,0,0" Name="schedulerControl1" ActiveViewType="Month" Background="{Binding Source={StaticResource COLOR_BACKGROUND}, Path=Color}" BorderBrush="{Binding Source={StaticResource COLOR_FONT_ACTIVE}}" ShowBorder="True">
+                <dxsch:SchedulerControl.DayView>
+                    <dxsch:DayView>
+                        <dxsch:DayView.AppointmentDisplayOptions>
+                            <dxsch:SchedulerDayViewAppointmentDisplayOptions />
+                        </dxsch:DayView.AppointmentDisplayOptions>
+                    </dxsch:DayView>
+                </dxsch:SchedulerControl.DayView>
+                <dxsch:SchedulerControl.MonthView>
+                    <dxsch:MonthView NavigationButtonVisibility="Never">
+                        <dxsch:MonthView.AppointmentDisplayOptions>
+                            <dxsch:SchedulerMonthViewAppointmentDisplayOptions />
+                        </dxsch:MonthView.AppointmentDisplayOptions>
+                    </dxsch:MonthView>
+                </dxsch:SchedulerControl.MonthView>
+                <dxsch:SchedulerControl.TimelineView>
+                    <dxsch:TimelineView>
+                        <dxsch:TimelineView.AppointmentDisplayOptions>
+                            <dxsch:SchedulerTimelineViewAppointmentDisplayOptions />
+                        </dxsch:TimelineView.AppointmentDisplayOptions>
+                    </dxsch:TimelineView>
+                </dxsch:SchedulerControl.TimelineView>
+                <dxsch:SchedulerControl.WeekView>
+                    <dxsch:WeekView>
+                        <dxsch:WeekView.AppointmentDisplayOptions>
+                            <dxsch:SchedulerWeekViewAppointmentDisplayOptions />
+                        </dxsch:WeekView.AppointmentDisplayOptions>
+                    </dxsch:WeekView>
+                </dxsch:SchedulerControl.WeekView>
+                <dxsch:SchedulerControl.WorkWeekView>
+                    <dxsch:WorkWeekView Background="{Binding Source={StaticResource COLOR_BACKGROUND}, Path=Color}">
+                        <dxsch:WorkWeekView.AppointmentDisplayOptions>
+                            <dxsch:SchedulerDayViewAppointmentDisplayOptions />
+                        </dxsch:WorkWeekView.AppointmentDisplayOptions>
+                    </dxsch:WorkWeekView>
+                </dxsch:SchedulerControl.WorkWeekView>
+            </dxsch:SchedulerControl>
+            <my:NavigateControl HorizontalAlignment="Right" Margin="0,29,20,0" x:Name="navigateControl1" VerticalAlignment="Top" Height="60" Width="auto" />
+        </Grid>
+    </Grid>
+    <UserControl.Effect>
+        <BlurEffect x:Name="mainBlur" Radius="0"></BlurEffect>
+    </UserControl.Effect>
+    <UserControl.Resources>
+        <Storyboard x:Name="sbRootRadius5">
+            <DoubleAnimation From="0" To="5" Storyboard.TargetName="mainBlur" Storyboard.TargetProperty="Radius" Duration="00:00:00.3"></DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="sbRootRadius0">
+            <DoubleAnimation From="5" To="0" Storyboard.TargetName="mainBlur" Storyboard.TargetProperty="Radius" Duration="00:00:00.3"></DoubleAnimation>
+        </Storyboard>
+    </UserControl.Resources>
+</UserControl>

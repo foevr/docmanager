@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="DocumentManager.Navigate.NavigateControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="60" d:DesignWidth="400" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors">
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <dxlc:FlowLayoutControl Name="flowLayoutControl1"  Padding="0">
+            <dxlc:LayoutGroup Name="lgMain"  Width="{Binding ElementName=LayoutRoot, Path=Width}" Height="{Binding ElementName=LayoutRoot, Path=Height}" ItemSpace="8">
+                <dxlc:LayoutItem Name="layoutItem4" Height="60" FontSize="36" FontWeight="Medium" Foreground="{Binding Source={StaticResource COLOR_FONT_INACTIVE}}">
+                    <TextBlock>日程</TextBlock>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Name="layoutItem3" Height="60" FontSize="36" FontWeight="Medium" Foreground="{Binding Source={StaticResource COLOR_FONT_INACTIVE}}">
+                    <TextBlock>合同</TextBlock>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Name="layoutItem2" Height="60" FontSize="36" FontWeight="Medium" Foreground="{Binding Source={StaticResource COLOR_FONT_INACTIVE}}">
+                    <TextBlock>系统</TextBlock>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Name="layoutItem1" Height="60" FontSize="36" FontWeight="Medium" Foreground="{Binding Source={StaticResource COLOR_FONT_INACTIVE}}">
+                    <TextBlock>注销</TextBlock>
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+        </dxlc:FlowLayoutControl>
+    </Grid>
+</UserControl>

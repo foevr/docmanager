@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentManager", "DocumentManager\DocumentManager.csproj", "{36C816F4-69AF-4D64-8C95-8E855B6D325C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BC3392DD-CACC-4997-910B-6932FFDA8229} = {BC3392DD-CACC-4997-910B-6932FFDA8229}
+		{BC3392DD-CACC-4997-910B-6932FFDA8229} = {BC3392DD-CACC-4997-910B-6932FFDA8229}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentManager.Web", "DocumentManager.Web\DocumentManager.Web.csproj", "{BC3392DD-CACC-4997-910B-6932FFDA8229}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36C816F4-69AF-4D64-8C95-8E855B6D325C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36C816F4-69AF-4D64-8C95-8E855B6D325C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36C816F4-69AF-4D64-8C95-8E855B6D325C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36C816F4-69AF-4D64-8C95-8E855B6D325C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC3392DD-CACC-4997-910B-6932FFDA8229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC3392DD-CACC-4997-910B-6932FFDA8229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC3392DD-CACC-4997-910B-6932FFDA8229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC3392DD-CACC-4997-910B-6932FFDA8229}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

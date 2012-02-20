@@ -1,0 +1,11 @@
+﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             x:Class="DocumentManager.App" xmlns:my="clr-namespace:System;assembly=mscorlib">
+    <Application.Resources>
+        <SolidColorBrush x:Key="COLOR_BACKGROUND" Color="#ff6E6E6E"></SolidColorBrush>
+        <SolidColorBrush x:Key="COLOR_FONT_ACTIVE" Color="#ffE3E3E3"></SolidColorBrush>
+        <SolidColorBrush x:Key="COLOR_FONT_INACTIVE" Color="#ff8A8A8A"></SolidColorBrush>
+        <SolidColorBrush x:Key="COLOR_PRIMARY" Color="#fff78a09"></SolidColorBrush>
+    <my:String x:Key="DevExpress.Xpf.License">84-22-A6-66-97-4E-AF-9D-1B-E9-29-80-C2-A5-5B-F3-0A-1C-8B-D8</my:String>
+  </Application.Resources>
+</Application>
